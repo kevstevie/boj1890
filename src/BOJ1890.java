@@ -14,5 +14,17 @@ class BOJ1890 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+        
+    }
+}
+class Node{
+    int x;
+    int y;
+    int jump;
+
+    public Node(int x, int y, int jump) {
+        this.x = x;
+        this.y = y;
+        this.jump = jump;
     }
 }
