@@ -23,10 +23,10 @@ class Main {
                 if (map[i][j] == 0) continue;
                 if (dp[i][j] == 0) continue;
                 if ( x < n){
-                    dp[x][j]++;
+                    dp[x][j] += dp[i][j];
                 }
                 if ( y < n){
-                    dp[i][y]++;
+                    dp[i][y] += dp[i][j];
                 }
             }
         }
