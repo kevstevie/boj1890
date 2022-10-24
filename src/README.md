@@ -8,3 +8,8 @@ https://www.acmicpc.net/problem/1890
 ---
 1. map 입력받기
 2. bfs를 통해 도달할 수 있는 경로 계산
+
+## 메모리 초과 발생
+
+---
+dp풀이로 변경
