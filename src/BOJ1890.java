@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -15,22 +17,23 @@ class BOJ1890 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        Stack<Node> dfs = new Stack<>();
+        Queue<Node> bfs = new LinkedList<>();
 
         long count = 0;
 
-        dfs.push(new Node(0, 0));
-        while (!dfs.isEmpty()) {
-            Node now = dfs.pop();
-            if (now.jump == 0 ) continue;
+        bfs.offer(new Node(0, 0));
+        while (!bfs.isEmpty()) {
+            Node now = bfs.poll();
+            System.out.println(now.x +" "+ now.y);
             if (now.x == n - 1 && now.y == n - 1){
                 count++;
                 continue;
             }
+            if (now.jump == 0 ) continue;
             if (now.x + now.jump < n) {
-                dfs.push(new Node(now.x + now.jump, now.y));
+                bfs.offer(new Node(now.x + now.jump, now.y));
             } else if (now.y + now.jump <n){
-                dfs.push(new Node(now.x, now.y + now.jump));
+                bfs.offer(new Node(now.x, now.y + now.jump));
             }
         }
         System.out.println(count);
