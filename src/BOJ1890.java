@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
 class BOJ1890 {
@@ -24,7 +23,6 @@ class BOJ1890 {
         bfs.offer(new Node(0, 0));
         while (!bfs.isEmpty()) {
             Node now = bfs.poll();
-            System.out.println(now.x +" "+ now.y);
             if (now.x == n - 1 && now.y == n - 1){
                 count++;
                 continue;
@@ -32,7 +30,8 @@ class BOJ1890 {
             if (now.jump == 0 ) continue;
             if (now.x + now.jump < n) {
                 bfs.offer(new Node(now.x + now.jump, now.y));
-            } else if (now.y + now.jump <n){
+            }
+            if (now.y + now.jump <n){
                 bfs.offer(new Node(now.x, now.y + now.jump));
             }
         }
